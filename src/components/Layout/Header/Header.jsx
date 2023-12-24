@@ -62,10 +62,12 @@ const Header = ({updateCount,cart}) => {
     <>
       <div className='header'>
         <div style={{display:"flex" ,gap:"4rem" ,justifyContent:"center",alignContent:"center"}}>
-        <h2 className='restaurant-name'> TrendPulse</h2>
+        <h2 className='restaurant-name' onClick={()=>navigate("/")}> TrendPulse</h2>
         <div style={{display:"flex",justifyContent:"center",alignContent:"center",gap:"1.5rem" ,cursor:"pointer"}}>
           <h2 onClick={()=>navigate("/about")}>About</h2>
-          <h2 onClick={()=>navigate("/")}>Home</h2>
+          <h2 onClick={()=>navigate("/contact")}>Contact</h2>
+    
+       
         </div>
         </div>
      

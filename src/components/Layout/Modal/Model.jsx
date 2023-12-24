@@ -1,5 +1,6 @@
 import React ,{useState,useEffect} from 'react';
 import "./style.css";
+import { toast } from 'react-toastify';
 
 const Modal = ({ isOpen, onClose, children ,totalAmount,count}) => {
    
@@ -7,6 +8,8 @@ const Modal = ({ isOpen, onClose, children ,totalAmount,count}) => {
   const order=()=>{
 
     console.log(`Orderd and Amount is ${totalAmount}`)
+    toast(`Your Order Successfully and Your Total Amount is ${totalAmount}`)
+    onClose();
   }
     if (!isOpen) return null;
   

@@ -29,18 +29,7 @@ Lorem ipsum dolor, sit amet consectetur rebates. </p>
         <p>We believe in mention any sustainability or ethical practices your company follows. 
             Our commitment to environmental/social cause drives our efforts to explain how your business contributes positively.</p>
             <br/><br/>
-            <h2>Contact Us</h2>
-            <br/>
-            <p>
-            Have questions or suggestions? We'd love to hear from you! Reach out to our dedicated customer support team at contact email/phone number.
-
-Thank you for choosing TrendPlus. We appreciate your trust in us.
-<br/><br/>
-
-<h2>TrendPlus</h2>
-<h2>Delhi Jamaia Nagar</h2>
-<h2>72638362981639</h2>
-            </p>
+            
     </div>
     <br/><br/>
     </>
