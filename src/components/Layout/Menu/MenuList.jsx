@@ -1,5 +1,6 @@
 import React from 'react';
 import "./style.css";
+import Slider from '../Slider/slider';
 
 
 const menuList=[
@@ -134,7 +135,10 @@ const MenuList = ({handle,cart,setCart}) => {
         handle();
     }
   return (
-    <div class="item-container">
+
+    <>
+    <Slider/>
+     <div class="item-container">
     {menuList.map(({ name, prize, img,id }) => (
         <div class="item" key={id}>
             <img src={img} alt={name}   />
@@ -153,6 +157,8 @@ const MenuList = ({handle,cart,setCart}) => {
         </div>
     ))}
 </div>
+    </>
+   
 
   )
 }

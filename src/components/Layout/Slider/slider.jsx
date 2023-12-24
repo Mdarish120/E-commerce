@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './style.css'; // Import your CSS file
 
+//react-toastify
+
 const Slider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const images = [
