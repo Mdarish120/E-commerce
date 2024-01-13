@@ -50,7 +50,7 @@ Thank you for choosing TrendPlus. We appreciate your trust in us.</p>
           Email:
           <input type="email" name="email" value={formData.email} onChange={handleChange} />
         </label>
-        <label style={{display:"flex" ,alignContent:'center'}}>
+        <label >
           Message:
           <textarea name="message" value={formData.message} onChange={handleChange} />
         </label>

@@ -1,14 +1,22 @@
 import React, { useState ,useEffect} from 'react';
-import {Navigate, useNavigate} from "react-router-dom";
+import {Navigate, json, useNavigate} from "react-router-dom";
 import "./style.css";
 import Model from '../Modal/Model';
 import Slider from '../Slider/slider';
+import { auth,provider } from '../../utils/config';
+import {signInWithPopup} from "firebase/auth";
+import axios from "axios";
 
 
 
 
-const Header = ({updateCount,cart}) => {
+const Header = ({updateCount,cart,setIstoken}) => {
 
+
+  const [isLogin,setIsLogin]=useState(false);
+  const [toggle,setToggle]=useState(false);
+  const [email,setEmial]=useState("");
+  console.log(cart)
   const navigate=useNavigate();
   const [count,setCount]=useState(0);
   const [isOpen,setIsOpen]=useState(false);
@@ -49,12 +57,48 @@ const Header = ({updateCount,cart}) => {
     
   }, [updateCount]);
 
+  useEffect(()=>{
+      
+    if(localStorage.getItem("auth")){
+      setIsLogin(true)
+    }else{
+      setIsLogin(false);
+    }
+  },[toggle]);
+
 
   const handleCartClick=()=>{
      setIsOpen((prev)=>!prev);
   }
 
   
+const handleClick=(check)=>{
+
+  if(check=="login"){
+    signInWithPopup(auth,provider).then((data)=>{
+      setEmial(data.user.email);
+      localStorage.setItem("auth",JSON.stringify(data.user.email));
+      setToggle((prev)=>!prev);
+      setIstoken(true);
+       
+    })
+  }else{
+      
+    setToggle((prev)=>!prev);
+       localStorage.clear();
+       setIstoken(false);
+        setRes([]);
+        setCount(0);
+          
+           
+
+       
+
+     
+  }
+ 
+}
+
 
 
 
@@ -70,11 +114,19 @@ const Header = ({updateCount,cart}) => {
        
         </div>
         </div>
-     
-        <div className='cart' onClick={handleCartClick}>
+         <div style={{display:"flex" ,alignContent:"center" ,justifyContent:"center",gap:"2rem"}}>
+         <h2 style={{marginTop:"0.7rem",cursor:"pointer"}}
+         
+         onClick={()=>!isLogin?handleClick("login"):handleClick("logout")}>
+          {!isLogin?"Login":"Logout"}
+          </h2>
+
+         <div className='cart' onClick={handleCartClick}>
           <div className='add-to-cart-icon'>Cart</div>
           <div className='count'>{count}</div>
         </div>
+         </div>
+        
       </div>
       <Model  isOpen={isOpen}  setRes={setRes} res={res} setCount={setCount} count={count}/>
    

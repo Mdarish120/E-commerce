@@ -125,7 +125,7 @@ const Model = ({isOpen,setRes,res,setCount,count}) => {
         setModalOpen(false);
       };
     
-      
+      console.log(res);
     
      
   return (
@@ -134,7 +134,7 @@ const Model = ({isOpen,setRes,res,setCount,count}) => {
         res.map((item,index)=>(
            <div key={index} className='it'>
             <div style={{display:"flex",justifyContent:"center", gap:"1rem"}}>
-
+              <img  src={item[0].img}   width="50rem"/>
             <h2>{item[0].name}</h2> 
             <h2>{`Rs${item[0].prize}`}</h2>
               <h2> {`x${item[1]}`}</h2>
